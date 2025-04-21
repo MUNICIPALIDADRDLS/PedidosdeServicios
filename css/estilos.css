@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    background: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  h2 {
+    color: #FFA500;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  
+  h3 {
+    color: #FFA500;
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #FFA500;
+    display: block;
+    margin-top: 14px;
+    font-size: 14px;
+  }
+  
+  .input-icon {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  
+  .input-icon i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #ff9900;
+    pointer-events: none;
+  }
+  
+  .input-icon input {
+    padding-left: 40px;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ffaa00aa;
+    background: #fff;
+    color: #111;
+    font-size: 16px;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: inset 0 0 4px #00000022;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  input:focus, select:focus {
+    border-color: #ff6600;
+    transform: scale(1.01);
+  }
+  
+  input::placeholder {
+    color: #999;
+  }
+  
+  input:disabled {
+    background: #eee;
+    color: #666;
+  }
+  
+  button {
+    background: linear-gradient(to right, #FFA500, #FF7F00);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    box-shadow: 0 4px 8px #00000033;
+    transition: transform 0.2s, background 0.3s;
+  }
+  
+  button:hover {
+    background: linear-gradient(to right, #FF7F00, #FFA500);
+    transform: scale(1.02);
+  }
+  
+  #mensaje {
+    margin-top: 20px;
+    color: #00c98d;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .formulario-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  
+  .input-group-responsive {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  @media (min-width: 600px) {
+    .formulario-container {
+      max-width: 480px;
+      margin: auto;
+      background: #ffffffee;
+      border-radius: 18px;
+      box-shadow: 0 0 20px #00000022;
+    }
+  
+    .input-group-responsive {
+      flex-direction: row;
+    }
+  }
+  
+  .oculto {
+    display: none;
+  }
+  
