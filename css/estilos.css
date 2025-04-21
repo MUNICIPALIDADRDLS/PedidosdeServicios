@@ -139,3 +139,26 @@
     display: none;
   }
   
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: girar 0.8s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  
+  @keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* BONUS: efecto visual para botón desactivado */
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
