@@ -16,3 +16,4 @@ function enviarFormulario(datos) {
     document.getElementById("mensaje").innerText = "❌ No se pudo enviar el trámite.";
   });
 }
+
