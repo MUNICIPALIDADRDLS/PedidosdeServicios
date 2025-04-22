@@ -3,7 +3,7 @@ let tiempoInicio = Date.now();
 function enviarFormulario(datos) {
   const tiempoEnvio = () => ((Date.now() - tiempoInicio) / 1000).toFixed(2);
 
-  fetch("https://script.google.com/macros/s/AKfycbwDnDxp-VshOdIl60RS_1dFzFC32s0ZPU2PWpmDq0_9NDYyUpMRitqg7L4KoaemCGjT/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzkg6jl8BhSEsTs6tgHeJct9yX1pvzYpdh73EZK4IqVeHVU54_rC-1bYcKw5RrlL27Q/exec", {
     method: "POST",
     mode: "no-cors",
     headers: {
@@ -12,7 +12,7 @@ function enviarFormulario(datos) {
     body: JSON.stringify(datos)
   })
     .then(() => {
-      document.getElementById("mensaje").innerText = "✅ Trámite enviado correctamente (modo no-cors).";
+      document.getElementById("mensaje").innerText = "✅ Trámite enviado correctamente.";
       document.getElementById("miFormulario").reset();
 
       if (typeof registrarTramiteEnviado === 'function') {

@@ -1,6 +1,6 @@
 // Google Analytics external loader + eventos personalizados
 (function() {
-    const GA_ID = "G-R4LL8DJWM3"; // Tu ID real de GA4
+    const GA_ID = "G-BSW1YTB00G"; // Tu ID real de GA4
   
     // Cargar gtag.js dinámicamente
     const script = document.createElement("script");
