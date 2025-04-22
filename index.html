@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Solicitud de Servicio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <div class="formulario-container">
+      <h2>Municipalidad de Rincón de los Sauces</h2>
+      <h3>Formulario de solicitud de servicio</h3>
+      <form id="miFormulario">
+        <label>Nombre:</label>
+        <div class="input-icon">
+          <i class="fas fa-user"></i>
+          <input type="text" name="nombre" required placeholder="Ej: Juan" />
+        </div>
+
+        <label>Apellido:</label>
+        <div class="input-icon">
+          <i class="fas fa-user"></i>
+          <input type="text" name="apellido" required placeholder="Ej: Pérez" />
+        </div>
+
+        <label>CUIT:</label>
+        <div class="input-icon">
+          <i class="fas fa-id-card"></i>
+          <input type="text" name="cuit" required placeholder="Ej: 20123456789" />
+        </div>
+
+        <div class="input-group-responsive">
+          <div style="flex: 1;">
+            <label>Manzana:</label>
+            <div class="input-icon">
+              <i class="fas fa-th-large"></i>
+              <input type="text" name="manzana" placeholder="Ej: 15" required />
+            </div>
+          </div>
+          <div style="flex: 1;">
+            <label>Lote:</label>
+            <div class="input-icon">
+              <i class="fas fa-th"></i>
+              <input type="text" name="lote" placeholder="Ej: 8" required />
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: right; margin-bottom: 10px;">
+          <button type="button" onclick="mostrarAyuda()" style="background: none; color: #FFA500; border: none; text-decoration: underline; cursor: pointer; font-size: 14px;">No sé mi manzana y lote</button>
+        </div>
+        <div id="mensajeAyuda" class="oculto" style="margin-bottom: 20px; font-size: 15px; color: #444; background: #fff3cd; border: 1px solid #ffeeba; padding: 10px; border-radius: 10px;">
+          Por favor comunicate con la Secretaría de Obras al <strong>2995336512</strong> para obtener tu número de manzana y lote.
+        </div>
+
+        <label>Servicio:</label>
+        <select name="servicio" required>
+          <option value="" disabled selected>Seleccione un servicio</option>
+          <option value="Agua">Agua</option>
+          <option value="Gas">Gas</option>
+          <option value="Cloacas">Cloacas</option>
+          <option value="Electricidad">Electricidad</option>
+        </select>
+
+        <label>Teléfono:</label>
+        <div class="input-icon">
+          <i class="fas fa-phone"></i>
+          <input type="text" name="telefono" required pattern="[0-9\-\s]+" placeholder="Ej: 299-533-6512" />
+        </div>
+
+        <label>Correo:</label>
+        <div class="input-icon">
+          <i class="fas fa-envelope"></i>
+          <input type="email" name="correo" placeholder="Ej: ejemplo@mail.com" />
+        </div>
+
+        <div style="margin-top: 24px; display: flex; align-items: center; gap: 8px;">
+          <input type="checkbox" id="aceptoTerminos" required style="width: 18px; height: 18px; margin: 0;" />
+          <a href="#" onclick="mostrarTextoTerminos(); return false;" style="color: #FFA500; text-decoration: underline; font-weight: bold;">Acepto los términos y condiciones</a>
+        </div>
+
+        <div id="textoTerminos" class="oculto" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 500px; background: white; color: #333; border: 1px solid #ccc; padding: 20px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); z-index: 1000;">
+          <strong>Términos y Condiciones:</strong><br>
+          Al enviar este formulario, usted declara que los datos ingresados son verídicos y autoriza a la Municipalidad de Rincón de los Sauces a utilizarlos con fines administrativos. El presente formulario no garantiza la prestación inmediata del servicio solicitado. Para más información, por favor comuníquese con la Secretaría correspondiente.
+          <div style="text-align: right; margin-top: 16px;">
+            <button onclick="cerrarTerminos()" style="padding: 6px 12px; background: #FFA500; color: white; border: none; border-radius: 6px; cursor: pointer;">Cerrar</button>
+          </div>
+        </div>
+        <div id="fondoModal" class="oculto" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999;"></div>
+
+        <div style="margin-top: 20px;"></div>
+        <button type="submit">📨 Enviar trámite</button>
+      </form>
+      <div id="mensaje"></div>
+    </div>
+
+    <script src="js/validaciones.js"></script>
+    <script src="js/api.js"></script>
+  </body>
+</html>
