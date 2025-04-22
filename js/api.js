@@ -3,7 +3,7 @@ let tiempoInicio = Date.now();
 function enviarFormulario(datos) {
   const tiempoEnvio = () => ((Date.now() - tiempoInicio) / 1000).toFixed(2);
 
-  fetch("https://script.google.com/macros/s/AKfycbzkg6jl8BhSEsTs6tgHeJct9yX1pvzYpdh73EZK4IqVeHVU54_rC-1bYcKw5RrlL27Q/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzm8lPUHE8_nzHKDpP45uTQbgJ14y6LHFdykab9JH4q_bcn5aiPReRZ45teGZm9mDzP/exec", {
     method: "POST",
     mode: "no-cors",
     headers: {
