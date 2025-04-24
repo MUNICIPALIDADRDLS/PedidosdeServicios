@@ -10,20 +10,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const datos = Object.fromEntries(new FormData(formulario));
 
     // Validaciones personalizadas
-    if (!/^[0-9]{11}$/.test(datos.cuit)) {
-      mostrarMensaje("❌ CUIT inválido. Debe tener 11 dígitos numéricos.", true);
-      return;
-    }
+if (!/^[0-9]{11}$/.test(datos.cuit)) {
+  mostrarMensaje("❌ CUIT inválido. Debe tener 11 dígitos numéricos.", true);
+  return;
+}
 
-    if (!/^[0-9\s\-]+$/.test(datos.telefono)) {
-      mostrarMensaje("❌ Teléfono inválido. Solo se permiten números, guiones y espacios.", true);
-      return;
-    }
+if (!/^[0-9\s\-]+$/.test(datos.telefono)) {
+  mostrarMensaje("❌ Teléfono inválido. Solo se permiten números, guiones y espacios.", true);
+  return;
+}
 
-    if (!datos.nombre || !datos.apellido || !datos.servicio) {
-      mostrarMensaje("❌ Por favor completá todos los campos obligatorios.", true);
-      return;
-    }
+if (!datos.correo || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(datos.correo)) {
+  mostrarMensaje("❌ Correo inválido. Ingresá un email válido.", true);
+  return;
+}
+
+if (!datos.nombre || !datos.apellido || !datos.servicio) {
+  mostrarMensaje("❌ Por favor completá todos los campos obligatorios.", true);
+  return;
+}
+
 
     // Desactivar botón y mostrar spinner
     if (boton) {
