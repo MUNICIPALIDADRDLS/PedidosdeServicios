@@ -24,7 +24,7 @@
           <input type="text" name="apellido" required placeholder="Ej: Pérez" />
         </div>
 
-        <label>CUIT:</label>
+        <label>CUIT o CUIL:</label>
         <div class="input-icon">
           <i class="fas fa-id-card"></i>
           <input type="text" name="cuit" required placeholder="Ej: 20123456789" />
@@ -35,23 +35,27 @@
             <label>Manzana:</label>
             <div class="input-icon">
               <i class="fas fa-th-large"></i>
-              <input type="text" name="manzana" placeholder="Ej: 15" required />
+              <input type="text" id="manzanaInput" name="manzana" placeholder="Ej: MZ-01" required />
             </div>
           </div>
           <div style="flex: 1;">
             <label>Lote:</label>
             <div class="input-icon">
               <i class="fas fa-th"></i>
-              <input type="text" name="lote" placeholder="Ej: 8" required />
+              <input type="text" id="loteInput" name="lote" placeholder="Ej: L1" required />
             </div>
           </div>
+        </div>
+
+        <div id="mensajeLote" style="color: #856404; font-size: 14px; display: none; margin-top: 6px;">
+          ⚠️ No se encontró la manzana o lote, pero puede continuar el trámite.
         </div>
 
         <div style="text-align: right; margin-bottom: 10px;">
           <button type="button" onclick="mostrarAyuda()" style="background: none; color: #FFA500; border: none; text-decoration: underline; cursor: pointer; font-size: 14px;">No sé mi manzana y lote</button>
         </div>
         <div id="mensajeAyuda" class="oculto" style="margin-bottom: 20px; font-size: 15px; color: #444; background: #fff3cd; border: 1px solid #ffeeba; padding: 10px; border-radius: 10px;">
-          Por favor comunicate con la Secretaría de Obras al <strong>2995336512</strong> para obtener tu número de manzana y lote.
+          Por favor comunicate con la Planificación de Obras y Servicios Públicos al <strong>2995336512</strong> para obtener tu número de manzana y lote.
         </div>
 
         <label>Servicio:</label>
@@ -61,6 +65,7 @@
           <option value="Gas">Gas</option>
           <option value="Cloacas">Cloacas</option>
           <option value="Electricidad">Electricidad</option>
+          <option value="Alumbrado público">Alumbrado público</option>
         </select>
 
         <label>Teléfono:</label>
@@ -75,6 +80,11 @@
           <input type="email" name="correo" placeholder="Ej: ejemplo@mail.com" />
         </div>
 
+        <label>Observación:</label>
+        <div class="input-icon">
+          <textarea name="observaciones" rows="3" placeholder="Ingrese detalles adicionales si los hubiese.." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
+        </div>
+
         <div style="margin-top: 24px; display: flex; align-items: center; gap: 8px;">
           <input type="checkbox" id="aceptoTerminos" required style="width: 18px; height: 18px; margin: 0;" />
           <a href="#" onclick="mostrarTextoTerminos(); return false;" style="color: #FFA500; text-decoration: underline; font-weight: bold;">Acepto los términos y condiciones</a>
@@ -82,7 +92,7 @@
 
         <div id="textoTerminos" class="oculto" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 500px; background: white; color: #333; border: 1px solid #ccc; padding: 20px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); z-index: 1000;">
           <strong>Términos y Condiciones:</strong><br>
-          Al enviar este formulario, usted declara que los datos ingresados son verídicos y autoriza a la Municipalidad de Rincón de los Sauces a utilizarlos con fines administrativos. El presente formulario no garantiza la prestación inmediata del servicio solicitado. Para más información, por favor comuníquese con la Secretaría correspondiente.
+            Al enviar este formulario, usted declara que los datos ingresados son verídicos y autoriza a la Municipalidad de Rincón de los Sauces a utilizarlos para comunicarle o notificarle información oficial administrativa. El presente formulario no garantiza la prestación inmediata del servicio solicitado.
           <div style="text-align: right; margin-top: 16px;">
             <button onclick="cerrarTerminos()" style="padding: 6px 12px; background: #FFA500; color: white; border: none; border-radius: 6px; cursor: pointer;">Cerrar</button>
           </div>
@@ -95,9 +105,31 @@
       <div id="mensaje"></div>
     </div>
 
+    <script src="js/helper.js"></script>
     <script src="js/validaciones.js"></script>
     <script src="js/api.js"></script>
     <script src="js/analytics.js"></script>
+
+    <script>
+  const manzanaInput = document.getElementById("manzanaInput");
+  const mensajeLote = document.getElementById("mensajeLote");
+
+  manzanaInput.addEventListener("input", () => {
+    const valor = manzanaInput.value.trim().toUpperCase();
+    const manzanaEncontrada = manzanas.find(m => m.id === valor);
+
+    if (manzanaEncontrada) {
+      // ✅ Manzana encontrada: limpiar fondo y ocultar mensaje
+      manzanaInput.style.backgroundColor = "white";
+      mensajeLote.style.display = "none";
+    } else {
+      // ❌ No encontrada: mostrar fondo amarillo y mensaje
+      manzanaInput.style.backgroundColor = "#fff3cd";
+      mensajeLote.style.display = "block";
+    }
+  });
+</script>
+
 
   </body>
 </html>
