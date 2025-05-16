@@ -12,7 +12,7 @@ function enviarFormulario(datos) {
     body: JSON.stringify(datos)
   })
     .then(() => {
-      document.getElementById("mensaje").innerText = "✅ Trámite enviado correctamente (modo no-cors).";
+      document.getElementById("mensaje").innerText = "✅ Trámite enviado correctamente.";
       document.getElementById("miFormulario").reset();
 
       if (typeof registrarTramiteEnviado === 'function') {

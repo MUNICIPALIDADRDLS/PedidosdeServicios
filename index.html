@@ -108,28 +108,8 @@
     <script src="js/helper.js"></script>
     <script src="js/validaciones.js"></script>
     <script src="js/api.js"></script>
-    <script src="js/analytics.js"></script>
-
-    <script>
-  const manzanaInput = document.getElementById("manzanaInput");
-  const mensajeLote = document.getElementById("mensajeLote");
-
-  manzanaInput.addEventListener("input", () => {
-    const valor = manzanaInput.value.trim().toUpperCase();
-    const manzanaEncontrada = manzanas.find(m => m.id === valor);
-
-    if (manzanaEncontrada) {
-      // ✅ Manzana encontrada: limpiar fondo y ocultar mensaje
-      manzanaInput.style.backgroundColor = "white";
-      mensajeLote.style.display = "none";
-    } else {
-      // ❌ No encontrada: mostrar fondo amarillo y mensaje
-      manzanaInput.style.backgroundColor = "#fff3cd";
-      mensajeLote.style.display = "block";
-    }
-  });
-</script>
-
+    <script src="js/analytics.js"></script> 
+    <script src="js/validacionManzanaLote.js"></script>
 
   </body>
 </html>
