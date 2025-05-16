@@ -1,7 +1,7 @@
 let manzanas = [];
 
 window.addEventListener('DOMContentLoaded', () => {
-    fetch('../data/manzanas.json') // ✅ Esto busca correctamente desde js/
+    fetch('/data/manzanas.json')
     .then(res => res.json())
     .then(data => {
       manzanas = data;
