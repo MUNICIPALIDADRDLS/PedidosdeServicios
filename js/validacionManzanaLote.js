@@ -1,7 +1,8 @@
 let manzanas = [];
 
 window.addEventListener('DOMContentLoaded', () => {
-    fetch('/data/manzanas.json')
+    fetch(`${window.location.pathname.split('/')[1] === 'PedidosdeServicios' ? '/PedidosdeServicios' : ''}/data/manzanas.json`)
+
     .then(res => res.json())
     .then(data => {
       manzanas = data;
