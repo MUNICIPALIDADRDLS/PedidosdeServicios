@@ -1,7 +1,7 @@
 const descripciones = {
-  "Agua": "Solicite conexión o revisión del servicio de agua potable.",
-  "Gas": "Gestione su pedido de conexión o inspección de gas domiciliario.",
-  "Cloacas": "Solicite conexión o mantenimiento del sistema cloacal.",
+  "Agua": "Solicite conexión del servicio de agua potable.",
+  "Gas": "Gestione su pedido de conexión del gas domiciliario.",
+  "Cloacas": "Solicite conexión del sistema cloacal.",
   "Electricidad": "Requiere conexión o revisión de red eléctrica municipal.",
   "Alumbrado público": "Reportar luminarias apagadas o solicitar nuevas instalaciones.",
   "Camión atmosférico": "Servicio de limpieza de pozos sépticos mediante camión atmosférico.",
