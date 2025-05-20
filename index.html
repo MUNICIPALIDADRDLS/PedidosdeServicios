@@ -59,14 +59,21 @@
         </div>
 
         <label>Servicio:</label>
-        <select name="servicio" required>
-          <option value="" disabled selected>Seleccione un servicio</option>
-          <option value="Agua">Agua</option>
-          <option value="Gas">Gas</option>
-          <option value="Cloacas">Cloacas</option>
-          <option value="Electricidad">Electricidad</option>
-          <option value="Alumbrado público">Alumbrado público</option>
-        </select>
+<select name="servicio" id="servicioSelect" required>
+  <option value="" disabled selected>Seleccione un servicio</option>
+  <option value="Agua">Agua</option>
+  <option value="Gas">Gas</option>
+  <option value="Cloacas">Cloacas</option>
+  <option value="Electricidad">Electricidad</option>
+  <option value="Alumbrado público">Alumbrado público</option>
+  <option value="Camión atmosférico">Camión atmosférico</option>
+  <option value="Retiro de escombros">Retiro de escombros</option>
+  <option value="Retiro de árboles">Retiro de árboles</option>
+</select>
+
+<!-- Contenedor para la descripción -->
+<div id="descripcionServicio" style="margin-top: 10px; background: #e7f3fe; color: #084298; border: 1px solid #b6d4fe; padding: 10px; border-radius: 8px; display: none;"></div>
+
 
         <label>Teléfono:</label>
         <div class="input-icon">
@@ -104,6 +111,33 @@
       </form>
       <div id="mensaje"></div>
     </div>
+
+
+    <script>
+  const descripciones = {
+    "Agua": "Solicite conexión o revisión del servicio de agua potable.",
+    "Gas": "Gestione su pedido de conexión o inspección de gas domiciliario.",
+    "Cloacas": "Solicite conexión o mantenimiento del sistema cloacal.",
+    "Electricidad": "Requiere conexión o revisión de red eléctrica municipal.",
+    "Alumbrado público": "Reportar luminarias apagadas o solicitar nuevas instalaciones.",
+    "Camión atmosférico": "Servicio de limpieza de pozos sépticos mediante camión atmosférico.",
+    "Retiro de escombros": "Solicite la recolección de restos de construcción o demolición.",
+    "Retiro de árboles": "Pida el retiro o poda de árboles caídos o en mal estado."
+  };
+
+  const selectServicio = document.getElementById('servicioSelect');
+  const descripcionDiv = document.getElementById('descripcionServicio');
+
+  selectServicio.addEventListener('change', function () {
+    const servicioSeleccionado = this.value;
+    if (descripciones[servicioSeleccionado]) {
+      descripcionDiv.textContent = descripciones[servicioSeleccionado];
+      descripcionDiv.style.display = 'block';
+    } else {
+      descripcionDiv.style.display = 'none';
+    }
+  });
+</script>
 
     <script src="js/helper.js"></script>
     <script src="js/validaciones.js"></script>
